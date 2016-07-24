@@ -11,7 +11,7 @@
 Establishment.create(
   id: 1222579,
   name: 'SAI-LILA KHAMAN DHOKLA HOUSE',
-  type: 'Food Take Out',
+  establishment_type: 'Food Take Out',
   address: '870 MARKHAM RD',
   status: 'Pass',
   min_inspections: 2)
@@ -66,12 +66,12 @@ Infraction.create(
 ## Second Inspection
 
 Inspection.create(
-  id: 103329697,
-  establishment_id: 103420091,
+  id: 103420091,
+  establishment_id: 1222579,
   date: '2015-01-08')
 
 Infraction.create(
-  inspection_id: 103329697,
+  inspection_id: 103420091,
   details: 'Operator fail to properly wash equipment',
   severity: 'M - Minor',
   action: 'Notice to Comply',
@@ -79,7 +79,7 @@ Infraction.create(
   amount_fined: 0)
 
 Infraction.create(
-  inspection_id: 103329697,
+  inspection_id: 103420091,
   details: 'Operator fail to properly wash surfaces in rooms',
   severity: 'M - Minor',
   action: 'Notice to Comply',
@@ -87,7 +87,7 @@ Infraction.create(
   amount_fined: 0)
 
 Infraction.create(
-  inspection_id: 103329697,
+  inspection_id: 103420091,
   details: 'STORE UTENSILS IN MANNER NOT PREVENTING CONTAMINATION O. REG  562/90 SEC. 81',
   severity: 'S - Significant',
   action: 'Corrected During Inspection',

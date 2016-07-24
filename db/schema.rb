@@ -12,15 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20160724202050) do
 
-  create_table "establishments", id: false, force: :cascade do |t|
-    t.integer  "id"
+  create_table "establishments", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "establishment_type"
     t.string   "address"
     t.string   "status"
     t.integer  "min_inspections"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "infractions", force: :cascade do |t|
@@ -34,8 +33,7 @@ ActiveRecord::Schema.define(version: 20160724202050) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "inspections", id: false, force: :cascade do |t|
-    t.integer  "id"
+  create_table "inspections", force: :cascade do |t|
     t.integer  "establishment_id"
     t.date     "date"
     t.datetime "created_at",       null: false
