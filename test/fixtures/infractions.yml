@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inspection_id: 1
+  details: MyString
+  severity: MyString
+  action: MyString
+  court_outcome: MyString
+  amount_fined: 9.99
+
+two:
+  inspection_id: 1
+  details: MyString
+  severity: MyString
+  action: MyString
+  court_outcome: MyString
+  amount_fined: 9.99

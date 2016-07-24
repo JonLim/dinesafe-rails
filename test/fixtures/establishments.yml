@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  name: MyString
+  type: 
+  address: MyString
+  status: MyString
+  min_inspections: 
+
+two:
+  id: 
+  name: MyString
+  type: 
+  address: MyString
+  status: MyString
+  min_inspections: 

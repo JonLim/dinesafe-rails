@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  establishment_id: 
+  date: 2016-07-24
+  infraction_details: MyString
+  infraction_severity: MyString
+  infraction_action: MyString
+  court_outcome: MyString
+  amount_fined: 9.99
+
+two:
+  id: 
+  establishment_id: 
+  date: 2016-07-24
+  infraction_details: MyString
+  infraction_severity: MyString
+  infraction_action: MyString
+  court_outcome: MyString
+  amount_fined: 9.99
