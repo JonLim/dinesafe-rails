@@ -4,6 +4,7 @@ class CreateInspections < ActiveRecord::Migration[5.0]
       t.primary_key :id
       t.integer :establishment_id
       t.date :date
+      t.string :status
 
       t.timestamps
     end

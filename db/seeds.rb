@@ -13,7 +13,6 @@ Establishment.create(
   name: 'SAI-LILA KHAMAN DHOKLA HOUSE',
   establishment_type: 'Food Take Out',
   address: '870 MARKHAM RD',
-  status: 'Pass',
   min_inspections: 2)
 
 ## First Inspection
@@ -21,7 +20,8 @@ Establishment.create(
 Inspection.create(
   id: 103329697,
   establishment_id: 1222579,
-  date: '2014-09-09')
+  date: '2014-09-09',
+  status: 'Pass')
 
 Infraction.create(
   inspection_id: 103329697,
@@ -68,7 +68,8 @@ Infraction.create(
 Inspection.create(
   id: 103420091,
   establishment_id: 1222579,
-  date: '2015-01-08')
+  date: '2015-01-08',
+  status: 'Pass')
 
 Infraction.create(
   inspection_id: 103420091,
@@ -109,7 +110,8 @@ Establishment.create(
 Inspection.create(
   id: 103301226,
   establishment_id: 10380313,
-  date: '2014-08-12')
+  date: '2014-08-12',
+  status: 'Pass')
 
 Infraction.create(
   inspection_id: 103301226,
@@ -132,7 +134,8 @@ Infraction.create(
 Inspection.create(
   id: 103368908,
   establishment_id: 10380313,
-  date: '2014-11-19')
+  date: '2014-11-19',
+  status: 'Pass')
 
 Infraction.create(
   inspection_id: 103368908,
@@ -163,7 +166,8 @@ Infraction.create(
 Inspection.create(
   id: 103442600,
   establishment_id: 10380313,
-  date: '2015-03-10')
+  date: '2015-03-10',
+  status: 'Conditional Pass')
 
 Infraction.create(
   inspection_id: 103442600,

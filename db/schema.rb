@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160724202050) do
   create_table "inspections", force: :cascade do |t|
     t.integer  "establishment_id"
     t.date     "date"
+    t.string   "status"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
