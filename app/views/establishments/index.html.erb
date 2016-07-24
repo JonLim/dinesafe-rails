@@ -1,7 +1,9 @@
 <h1>List of Establishments</h1>
 
 <% @establishments.each do | establishment | %>
-  <p><%= establishment.name %></p>
-  <p><%= establishment.address %></p>
-  <p><%= link_to 'Show', establishment %></p>
+  <p><strong><%= establishment.name %></strong></p>
+  <p>
+    <%= establishment.address %>, 
+    <%= link_to 'Show', establishment %>
+  </p>
 <% end %>

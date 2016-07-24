@@ -93,3 +93,106 @@ Infraction.create(
   action: 'Corrected During Inspection',
   court_outcome: '',
   amount_fined: 0)
+
+# Second Establishment
+
+Establishment.create(
+  id: 10380313,
+  name: 'WAKAME SUSHI',
+  establishment_type: 'Restaurant',
+  address: '638 SHEPPARD AVE W',
+  status: 'Pass',
+  min_inspections: 3)
+
+## First Inspection
+
+Inspection.create(
+  id: 103301226,
+  establishment_id: 10380313,
+  date: '2014-08-12')
+
+Infraction.create(
+  inspection_id: 103301226,
+  details: 'Operator fail to properly wash equipment',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103301226,
+  details: 'Operator fail to properly wash surfaces in rooms',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+# Second Inspection
+
+Inspection.create(
+  id: 103368908,
+  establishment_id: 10380313,
+  date: '2014-11-19')
+
+Infraction.create(
+  inspection_id: 103368908,
+  details: 'Operator fail to properly maintain rooms',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103368908,
+  details: 'Operator fail to properly wash equipment',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103368908,
+  details: 'Operator fail to properly wash surfaces in rooms',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+# Third Inspection
+
+Inspection.create(
+  id: 103442600,
+  establishment_id: 10380313,
+  date: '2015-03-10')
+
+Infraction.create(
+  inspection_id: 103442600,
+  details: 'Operator fail to properly maintain mechanical washer',
+  severity: 'S - Significant',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103442600,
+  details: 'Operator fail to properly maintain rooms',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103442600,
+  details: 'Operator fail to properly wash equipment',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
+
+Infraction.create(
+  inspection_id: 103442600,
+  details: 'Operator fail to provide proper equipment',
+  severity: 'M - Minor',
+  action: 'Notice to Comply',
+  court_outcome: '',
+  amount_fined: 0)
