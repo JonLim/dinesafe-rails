@@ -102,7 +102,6 @@ Establishment.create(
   name: 'WAKAME SUSHI',
   establishment_type: 'Restaurant',
   address: '638 SHEPPARD AVE W',
-  status: 'Pass',
   min_inspections: 3)
 
 ## First Inspection

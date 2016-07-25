@@ -1,9 +1,33 @@
 <h1>List of Establishments</h1>
 
-<% @establishments.each do | establishment | %>
-  <p><strong><%= establishment.name %></strong></p>
-  <p>
-    <%= establishment.address %>, 
-    <%= link_to 'Show', establishment %>
-  </p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @establishments.each do | establishment | %>
+      <tr>
+        <td><%= establishment.name %></td>
+        <td><%= establishment.address %></td>
+        <td><%= link_to 'Show', establishment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+
+
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'dinesafe_dump' %>
+  <%= submit_tag("Upload") %>
 <% end %>
+
