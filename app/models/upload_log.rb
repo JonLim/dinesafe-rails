@@ -1,0 +1,2 @@
+class UploadLog < ApplicationRecord
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_uploaded: 2016-07-25 08:59:42
+  file_name: MyString
+  establishments_created: 1
+  inspections_created: 1
+  infractions_created: 1
+
+two:
+  date_uploaded: 2016-07-25 08:59:42
+  file_name: MyString
+  establishments_created: 1
+  inspections_created: 1
+  infractions_created: 1
