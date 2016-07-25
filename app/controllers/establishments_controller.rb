@@ -2,7 +2,7 @@ class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @establishments = Establishment.all
+    @establishments = Establishment.limit(30)
   end
 
   def show
@@ -49,15 +49,19 @@ class EstablishmentsController < ApplicationController
             status: establishment['ESTABLISHMENT_STATUS'])
         end
 
-        p 'CREATING INFRACTION FOR ' +  establishment['INSPECTION_ID']
+        if ( !establishment['INFRACTION_DETAILS'].blank? and 
+          ( Inspection.exists?(establishment['INSPECTION_ID']) and 
+            !Infraction.exists?(:inspection_id => establishment['INSPECTION_ID'], :details => establishment['INFRACTION_DETAILS']) ))
+          p 'CREATING INFRACTION FOR ' +  establishment['INSPECTION_ID']
 
-        Infraction.create(
-          inspection_id: establishment['INSPECTION_ID'],
-          details: establishment['INFRACTION_DETAILS'],
-          severity: establishment['SEVERITY'],
-          action: establishment['ACTION'],
-          court_outcome: establishment['COURT_OUTCOME'],
-          amount_fined: establishment['AMOUNT_FINED'])
+          Infraction.create(
+            inspection_id: establishment['INSPECTION_ID'],
+            details: establishment['INFRACTION_DETAILS'],
+            severity: establishment['SEVERITY'],
+            action: establishment['ACTION'],
+            court_outcome: establishment['COURT_OUTCOME'],
+            amount_fined: establishment['AMOUNT_FINED'])
+        end
       end
     end
   end
