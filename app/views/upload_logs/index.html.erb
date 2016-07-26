@@ -26,4 +26,11 @@
         <% end %>
       </tbody>
     </table>
+
+
+
+  <%= form_tag({action: :upload}, multipart: true) do %>
+    <%= file_field_tag 'dinesafe_dump' %>
+    <%= submit_tag("Upload") %>
+  <% end %>
 </div>

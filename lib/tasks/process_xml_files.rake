@@ -1,5 +1,3 @@
-require 'oga'
-
 desc 'Looks inside of /public/uploads and parses the XML files'
 task :parse_xml_files => :environment do
   p 'Starting task'
