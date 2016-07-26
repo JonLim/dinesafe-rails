@@ -2,7 +2,7 @@ class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @establishments = Establishment.limit(30)
+    @establishments = Establishment.page(params[:page]).per(30)
   end
 
   def show

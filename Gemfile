@@ -9,6 +9,7 @@ gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.0'
 gem 'jbuilder',     '2.4.1'
 gem 'oga',          '2.3'
+gem 'kaminari',      '0.17.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
