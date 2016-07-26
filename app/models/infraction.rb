@@ -9,6 +9,8 @@ class Infraction < ApplicationRecord
       return 2
     when 'M - Minor'
       return 3
+    when 'NA - Not Applicable'
+      return 4
     end
   end
 
