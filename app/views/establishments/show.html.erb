@@ -1,29 +1,57 @@
-<h1><%= @establishment.name %></h1>
+<div class="container">
+  <div class="row">
+    <h1><%= @establishment.name %></h1>
+  </div>
 
-<p>
-  <strong>Type: </strong>
-  <%= @establishment.establishment_type %>
-</p>
+  <div class="row">
+    <strong>Type: </strong>
+    <%= @establishment.establishment_type %>
+  </div>
 
-<p>
-  <strong>Address: </strong>
-  <%= @establishment.address %>
-</p>
+  <div class="row">
+    <strong>Address: </strong>
+    <%= @establishment.address %>
+  </div>
 
-<p>
-  <strong>Last Inspection Status: </strong>
-  <%= @establishment.last_status %>
-</p>
+  <div class="row">
+    <strong>Last Inspection Status: </strong>
+    <%= @establishment.last_status %>
+  </div>
 
-<h2>List of Inspections</h2>
+  <div class="row">
+    <h2>List of Inspections</h2>
+  </div>
 
-<% @inspections.each do | inspection | %>
-  <p>
-    <strong>Inspection Date: <%= inspection.date %> (<%= inspection.status %>)</strong>
-    <ul>
-    <% inspection.infractions.each do | infraction | %>
-      <li><%= infraction.details %></li>
-    <% end %>
-    </ul>
-  </p>
-<% end %>
+  <% @inspections.each do | inspection | %>
+    <div class="panel panel-<%= inspection.status_colour %>">
+      <div class="panel-heading">
+        <h3 class="panel-title">Inspection Date: <%= inspection.date %> (<%= inspection.status %>)</h3>
+      </div>
+
+      <div class="panel-body">
+        <table class="table">
+          <thead>
+            <th class="col-md-2">Severity</th>
+            <th class="col-md-4">Details</th>
+            <th class="col-md-2">Action</th>
+            <th class="col-md-2">Court Outcome</th>
+            <th class="col-md-2">Amount Fined</th>
+          </thead>
+
+          <tbody>
+            <% inspection.infractions.sort_by(&:severity_priority).each do | infraction | %>
+              <tr>
+                <td class="col-md-2"><%= infraction.severity %></td>
+                <td class="col-md-4"><%= infraction.details %></td>
+                <td class="col-md-2"><%= infraction.action %></td>
+                <td class="col-md-2"><%= infraction.court_outcome %></td>
+                <td class="col-md-2"><%= number_to_currency(infraction.amount_fined) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+
+</div>

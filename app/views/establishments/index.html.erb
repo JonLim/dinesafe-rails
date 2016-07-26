@@ -1,31 +1,31 @@
-<h1>List of Establishments</h1>
+<div class="container">
+  <div class="row">
+    <h1>List of Establishments</h1>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th></th>
-    </tr>
-  </thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @establishments.each do | establishment | %>
-      <tr>
-        <td><%= establishment.name %></td>
-        <td><%= establishment.address %></td>
-        <td><%= link_to 'Show', establishment %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @establishments.each do | establishment | %>
+          <tr>
+            <td><%= establishment.name %></td>
+            <td><%= establishment.address %></td>
+            <td><%= link_to 'Show', establishment %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<p><%= paginate @establishments %></p>
+    <p><%= paginate @establishments %></p>
 
-<br />
-<br />
-<br />
-<br />
+</div>
 
 
 <%= form_tag({action: :upload}, multipart: true) do %>

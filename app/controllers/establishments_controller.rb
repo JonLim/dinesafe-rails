@@ -6,7 +6,7 @@ class EstablishmentsController < ApplicationController
   end
 
   def show
-    @inspections = @establishment.inspections
+    @inspections = @establishment.inspections.order('date DESC')
   end
 
   def upload
