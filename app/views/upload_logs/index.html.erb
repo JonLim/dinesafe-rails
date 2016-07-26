@@ -1,5 +1,33 @@
 <div class="container">
-  <h1>UploadLogs#index</h1>
+  <div class="row">
+    <h1>Upload History</h1>
+  </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>File Name</th>
+          <th>Establishments Created</th>
+          <th>Inspections Created</th>
+          <th>Infractions Created</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @uploads.each do | upload | %>
+          <tr>
+            <td><%= upload.date_uploaded %></td>
+            <td><%= upload.file_name %></td>
+            <td><%= upload.establishments_created %></td>
+            <td><%= upload.inspections_created %></td>
+            <td><%= upload.infractions_created %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
 
   <%= form_tag({action: :upload}, multipart: true) do %>
     <%= file_field_tag 'dinesafe_dump' %>
