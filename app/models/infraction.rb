@@ -11,4 +11,9 @@ class Infraction < ApplicationRecord
       return 3
     end
   end
+
+  def severity_colour
+    row_colour = { 'S - Significant': 'warning', 'C - Crucial': 'danger' }
+    return row_colour[self.severity.to_sym]
+  end
 end

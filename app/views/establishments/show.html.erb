@@ -41,7 +41,7 @@
           <tbody>
             <% inspection.infractions.sort_by(&:severity_priority).each do | infraction | %>
               <tr>
-                <td class="col-md-2"><%= infraction.severity %></td>
+                <td class="col-md-2 <%= infraction.severity_colour %>"><%= infraction.severity %></td>
                 <td class="col-md-4"><%= infraction.details %></td>
                 <td class="col-md-2"><%= infraction.action %></td>
                 <td class="col-md-2"><%= infraction.court_outcome %></td>
