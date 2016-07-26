@@ -1,2 +1,8 @@
-<h1>UploadLogs#index</h1>
-<p>Find me in app/views/upload_logs/index.html.erb</p>
+<div class="container">
+  <h1>UploadLogs#index</h1>
+
+  <%= form_tag({action: :upload}, multipart: true) do %>
+    <%= file_field_tag 'dinesafe_dump' %>
+    <%= submit_tag("Upload") %>
+  <% end %>
+</div>
