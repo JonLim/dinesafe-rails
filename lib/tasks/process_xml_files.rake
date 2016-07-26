@@ -1,12 +1,18 @@
-require 'rake'
+require 'oga'
 
 desc 'Looks inside of /public/uploads and parses the XML files'
 task :parse_xml_files => :environment do
+  p 'Starting task'
   Dir.glob(Rails.root.join('public', 'uploads', '*.xml')) do | item |
+    p 'First file: ' + item
     selected_file = File.open(item)
+    p selected_file
     parsed_file = Oga.parse_xml(selected_file)
+    p parsed_file
 
-    upload_log = { file_name: File.basename(selected_file), establishments: 0, inspections: 0, infractions: 0 }
+    upload_log = { file_name: selected_file, establishments: 0, inspections: 0, infractions: 0 }
+
+    p upload_log
 
     parsed_file.each_node do | node |
       if node.is_a?(Oga::XML::Element) and node.name == 'ROW'

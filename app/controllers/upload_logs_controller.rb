@@ -7,16 +7,14 @@ class UploadLogsController < ApplicationController
   end
 
   def upload
-    puts params[:dinesafe_dump]
-    uploaded_io = params[:dinesafe_dump]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
+    Dir.glob(Rails.root.join('public', 'uploads', '*.xml')) do | item |
+    p 'First file: ' + item
+    selected_file = File.open(item)
+    parsed_file = Oga.parse_xml(selected_file)
 
-    uploaded_file = File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename))
-    parsed_file = Oga.parse_xml(uploaded_file)
+    upload_log = { file_name: selected_file, establishments: 0, inspections: 0, infractions: 0 }
 
-    upload_log = { file_name: uploaded_io.original_filename, establishments: 0, inspections: 0, infractions: 0 }
+    p upload_log
 
     parsed_file.each_node do | node |
       if node.is_a?(Oga::XML::Element) and node.name == 'ROW'
@@ -71,13 +69,14 @@ class UploadLogsController < ApplicationController
       end
     end
 
-    UploadLog.create(
-      date_uploaded: Time.now(),
-      file_name: upload_log[:file_name],
-      establishments_created: upload_log[:establishments],
-      inspections_created: upload_log[:inspections],
-      infractions_created: upload_log[:infractions])
+      UploadLog.create(
+        date_uploaded: Time.now(),
+        file_name: upload_log[:file_name],
+        establishments_created: upload_log[:establishments],
+        inspections_created: upload_log[:inspections],
+        infractions_created: upload_log[:infractions])
 
-    File.delete(Rails.root.join('public', 'uploads', uploaded_io.original_filename))
+      File.delete(selected_file)
+    end
   end
 end
