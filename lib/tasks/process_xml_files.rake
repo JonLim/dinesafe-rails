@@ -1,10 +1,11 @@
 desc 'Looks inside of /public/uploads and parses the XML files'
 task :parse_xml_files => :environment do
+
   Dir.glob(Rails.root.join('public', 'uploads', '*.xml')) do | item |
     selected_file = File.open(item)
     parsed_file = Oga::XML::PullParser.new(selected_file)
 
-    upload_log = { file_name: selected_file, establishments: 0, inspections: 0, infractions: 0 }
+    upload_log = { file_name: File.basename(item), establishments: 0, inspections: 0, infractions: 0 }
 
     establishment = Hash.new
 
@@ -115,6 +116,14 @@ task :parse_xml_files => :environment do
         end # node.name == 'ROW'
       end # parsed_file.on(:element) do
     end #parsed_file.parse do | node |
+
+    UploadLog.create(
+      date_uploaded: Time.now(),
+      file_name: upload_log[:file_name],
+      establishments_created: upload_log[:establishments],
+      inspections_created: upload_log[:inspections],
+      infractions_created: upload_log[:infractions])
     
+    File.delete(selected_file)
   end # Dir.glob(Rails.root.join('public', 'uploads', '*.xml')) do | item |
 end # task :parse_xml_files => :environment do
