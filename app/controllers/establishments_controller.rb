@@ -3,6 +3,12 @@ class EstablishmentsController < ApplicationController
 
   def index
     @establishments = Establishment.order(:name).page(params[:page]).per(30)
+
+    if params[:search]
+      @establishments = Establishment.search(params[:search]).order(:name).page(params[:page]).per(30)
+    else
+      @establishments = Establishment.order(:name).page(params[:page]).per(30)
+    end
   end
 
   def show
