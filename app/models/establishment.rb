@@ -12,6 +12,6 @@ class Establishment < ApplicationRecord
   end
 
   def self.search(search)
-    where("name ILIKE ?", "%#{search}%") 
+    where("name ILIKE ?", "%#{sanitize_sql_like(search)}%") 
   end
 end
