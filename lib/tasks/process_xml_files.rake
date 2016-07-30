@@ -1,6 +1,8 @@
 desc 'Looks inside of /public/uploads and parses the XML files'
 task :parse_xml_files => :environment do
 
+  puts 'CHECKING FOR XML FILES TO LOAD INTO DB'
+
   Dir.glob(Rails.root.join('public', 'uploads', '*.xml')) do | item |
     selected_file = File.open(item)
     parsed_file = Oga::XML::PullParser.new(selected_file)
@@ -9,7 +11,7 @@ task :parse_xml_files => :environment do
 
     establishment = Hash.new
 
-    p 'STARTING PARSE' 
+    p 'STARTING XML PARSE PROCESS'
 
     parsed_file.parse do | node |
       parsed_file.on(:text, %w{ROWDATA ROW ESTABLISHMENT_ID}) do

@@ -14,6 +14,7 @@ gem 'oga',            '2.3'
 gem 'kaminari',       '0.17.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'newrelic_rpm',   '3.16.0.318'
+gem 'rubyzip',        '1.2.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
