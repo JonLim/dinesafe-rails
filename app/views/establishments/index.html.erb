@@ -6,18 +6,20 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th></th>
+          <th class="col-md-4"><%= sortable 'name' %></th>
+          <th class="col-md-3"><%= sortable 'address' %></th>
+          <th class="col-md-2"><%= sortable 'date', 'Last Inspection' %></th>
+          <th class="col-md-1"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @establishments.each do | establishment | %>
           <tr>
-            <td><%= establishment.name %></td>
-            <td><%= establishment.address %></td>
-            <td><%= link_to 'Show', establishment %></td>
+            <td class="col-md-4"><%= establishment.name %></td>
+            <td class="col-md-3"><%= establishment.address %></td>
+            <td class="col-md-2"><%= establishment.last_date %></td>
+            <td class="col-md-1"><%= link_to 'Show', establishment %></td>
           </tr>
         <% end %>
       </tbody>

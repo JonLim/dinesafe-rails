@@ -9,6 +9,10 @@ class EstablishmentsController < ApplicationController
     else
       @establishments = Establishment.order(:name).page(params[:page]).per(30)
     end
+
+    if params[:sort] && params[:direction]
+      @establishments = Establishment.joins(:inspections).order(params[:sort] + ' ' + params[:direction]).page(params[:page]).per(30)
+    end
   end
 
   def show
