@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'upload_logs/index'
-  get 'upload_logs/upload'
+  get '/stats', to: 'upload_logs#index'
 
   root 'establishments#index'
 
