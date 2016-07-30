@@ -11,7 +11,7 @@
 
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-      <li role="presentation"><a href="#">About</a></li>
+      <li role="presentation"><%= link_to 'About', about_path %></li>
       <li role="presentation"><%= link_to 'Stats', stats_path %></li>
     </ul>
 
@@ -21,6 +21,6 @@
     </div>
     <%= submit_tag "Search", class: 'btn btn-default' %>
     <% end %>
-    
+
   </div><!-- collapse navbar-collapse -->
 </nav>
