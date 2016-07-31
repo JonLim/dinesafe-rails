@@ -1,6 +1,6 @@
 class UploadLogsController < ApplicationController
   def index
-    @uploads = UploadLog.all
+    @uploads = UploadLog.all.order('date_uploaded DESC')
 
     @dinesafe_stats = {}
     @dinesafe_stats[:Establishments] = Establishment.all.count
