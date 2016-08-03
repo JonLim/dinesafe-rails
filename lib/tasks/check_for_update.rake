@@ -17,6 +17,9 @@ task :check_for_update => :environment do
     currDate = Time.now()
     formattedDate = currDate.strftime("%Y%b%d")
 
+    path = File.join(Rails.root, 'public', 'uploads')
+    FileUtils.mkdir_p(path) unless File.exist?(path) 
+
     download = open('http://opendata.toronto.ca/public.health/dinesafe/dinesafe.zip')
     IO.copy_stream(download, Rails.root.join('public', 'uploads', "dinesafe_#{formattedDate}.zip"))
 

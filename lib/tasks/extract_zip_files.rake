@@ -16,5 +16,5 @@ task :extract_zip_files => :environment do
     File.delete(item)
   end
 
-  Rake::Task["process_xml_files"].invoke
+  Rake::Task["parse_xml_files"].invoke
 end
