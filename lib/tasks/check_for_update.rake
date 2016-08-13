@@ -12,7 +12,7 @@ task :check_for_update => :environment do
     http.request(req)
   end
 
-  if res['Last-Modified'] > UploadLog.all.order('date_uploaded DESC').first.date_uploaded
+  if (UploadLog.all.empty? || (res['Last-Modified'] > UploadLog.all.order('date_uploaded DESC').first.date_uploaded))
     puts 'NEWER FILE FOUND, DOWNLOADING'
     currDate = Time.now()
     formattedDate = currDate.strftime("%Y%b%d")
