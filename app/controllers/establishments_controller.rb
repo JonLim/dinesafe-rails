@@ -4,12 +4,10 @@ class EstablishmentsController < ApplicationController
   def index
     if params[:search]
       @establishments = Establishment.search(params[:search]).order(:name).page(params[:page]).per(30).includes(:inspections => :establishment)
+    elsif params[:sort] && params[:direction]
+      @establishments = Establishment.order(params[:sort] + ' ' + params[:direction]).page(params[:page]).per(30).includes(:inspections => :establishment)
     else
       @establishments = Establishment.order(:name).page(params[:page]).per(30).includes(:inspections => :establishment)
-    end
-
-    if params[:sort] && params[:direction]
-      @establishments = Establishment.joins(:inspections).order(params[:sort] + ' ' + params[:direction]).page(params[:page]).per(30).includes(:inspections => :establishment)
     end
   end
 
