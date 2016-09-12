@@ -6,7 +6,7 @@ class Establishment < ApplicationRecord
     # Returns the latest inspection's status attribute
     inspections.order('date DESC').first.status
   end
-
+  
   def self.search(search)
     where("name ILIKE ?", "%#{sanitize_sql_like(search)}%") 
   end
