@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725125942) do
+ActiveRecord::Schema.define(version: 20160912114231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160725125942) do
     t.string   "status"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["establishment_id"], name: "index_inspections_on_establishment_id", using: :btree
   end
 
   create_table "upload_logs", force: :cascade do |t|
