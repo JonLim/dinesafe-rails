@@ -17,10 +17,10 @@
     </ul>
 
     <%= form_tag(establishments_path, :method => 'get', id: 'search-form', class: 'navbar-form navbar-left pull-right') do %>
-    <div class="form-group">
-      <%= text_field_tag :search, params[:search], placeholder: "Search for Establishment", class: 'form-control' %>
-    </div>
-    <%= submit_tag "Search", class: 'btn btn-default' %>
+      <div class="form-group">
+        <%= text_field_tag :search, params[:search], placeholder: "Search for Establishment", class: 'form-control' %>
+      </div>
+      <%= submit_tag "Search", class: 'btn btn-default' %>
     <% end %>
 
   </div><!-- collapse navbar-collapse -->

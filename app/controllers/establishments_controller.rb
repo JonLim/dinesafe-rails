@@ -2,12 +2,16 @@ class EstablishmentsController < ApplicationController
   before_action :set_establishment, only: [:show, :edit, :update, :destroy]
 
   def index
+    @establishments = Establishment.page(params[:page]).per(30).includes(:inspections => :establishment)
+
     if params[:search]
-      @establishments = Establishment.search(params[:search]).order(:name).page(params[:page]).per(30).includes(:inspections => :establishment)
-    elsif params[:sort] && params[:direction]
-      @establishments = Establishment.order(params[:sort] + ' ' + params[:direction]).page(params[:page]).per(30).includes(:inspections => :establishment)
+      @establishments = Establishment.search(params[:search]).page(params[:page]).per(30).includes(:inspections => :establishment)
+    end
+
+    if (params[:sort] && params[:direction])
+      @establishments.order(params[:sort] + ' ' + params[:direction])
     else
-      @establishments = Establishment.order(:name).page(params[:page]).per(30).includes(:inspections => :establishment)
+      @establishments.order(:name)
     end
   end
 
