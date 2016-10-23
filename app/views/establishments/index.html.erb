@@ -18,7 +18,7 @@
           <tr>
             <td class="col-md-4"><%= establishment.name %></td>
             <td class="col-md-3"><%= establishment.address %></td>
-            <td class="col-md-2"><%= establishment.inspections.last.date %></td>
+            <td class="col-md-2"><%= establishment.inspections.first.date %></td>
             <td class="col-md-1"><%= link_to 'Show', establishment %></td>
           </tr>
         <% end %>
