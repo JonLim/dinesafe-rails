@@ -11,6 +11,9 @@ class EstablishmentsController < ApplicationController
     if (params[:sort] && params[:direction])
       session[:sort] = params[:sort]
       session[:direction] = params[:direction]
+    else
+      session[:sort] = 'name'
+      session[:direction] = 'desc'
     end
 
     if session[:search].present?
