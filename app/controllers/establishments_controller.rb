@@ -5,13 +5,18 @@ class EstablishmentsController < ApplicationController
     @establishments = Establishment.page(params[:page]).per(30).includes(:inspections => :establishment)
 
     if params[:search]
-      @establishments = Establishment.search(params[:search]).page(params[:page]).per(30).includes(:inspections => :establishment)
+      session[:search] = params[:search]
     end
 
     if (params[:sort] && params[:direction])
-      @establishments.order(params[:sort] + ' ' + params[:direction])
+      session[:sort] = params[:sort]
+      session[:direction] = params[:direction]
+    end
+
+    if session[:search].present?
+      @establishments = Establishment.search(session[:search]).page(params[:page]).per(30).includes(:inspections => :establishment).order(session[:sort] + ' ' + session[:direction])
     else
-      @establishments.order(:name)
+      @establishments = Establishment.page(session[:page]).per(30).includes(:inspections => :establishment).order(session[:sort] + ' ' + session[:direction])
     end
   end
 
