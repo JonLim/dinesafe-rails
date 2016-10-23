@@ -13,7 +13,7 @@ class EstablishmentsController < ApplicationController
       session[:direction] = params[:direction]
     else
       session[:sort] = 'name'
-      session[:direction] = 'desc'
+      session[:direction] = 'asc'
     end
 
     if session[:search].present?
@@ -24,7 +24,7 @@ class EstablishmentsController < ApplicationController
   end
 
   def show
-    @inspections = @establishment.inspections.order('date DESC').includes(:infractions => :inspection)
+    @inspections = @establishment.inspections.includes(:infractions => :inspection)
   end
 
   private
