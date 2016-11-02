@@ -1,5 +1,5 @@
 class Establishment < ApplicationRecord
-  has_many :inspections, -> { order 'date desc' }
+  has_many :inspections, -> { order(date: :desc) }
   has_many :infractions, through: :inspections
 
   def last_status
